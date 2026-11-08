@@ -1,0 +1,428 @@
+{
+  "info": {
+    "_postman_id": "fbf996bb-dbca-4c90-be71-4f5d3916d065",
+    "name": "APITesting-forStudents",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12015196"
+  },
+  "item": [
+    {
+      "name": "Cloud Environment tests",
+      "item": [
+        {
+          "name": "Registration - Verify Conflict",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"ashtek\",\r\n  \"email\": \"yourRegisteredEmailId\",\r\n  \"password\": \"yourValidPassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/register",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registration - Invalid Registration",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"ashtek\",\r\n  \"email\": \"example@example.com\",\r\n  \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/register",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Invalid credentials",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"yourEmail\",\r\n    \"password\": \"fakePassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Success",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"yourRegisteredEmailId\",\r\n    \"password\": \"yourValidPassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllExpenses - Success",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20iLCJleHAiOjE3Nzg5OTcwMzcsImlhdCI6MTc3ODk5MzQzNywiZW1haWwiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20ifQ.pBmFO3Tt6xBhWQNZfhF-lsBaWgK6Ih69qVIQjtVAJAE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"yourRegisteredEmailId\",\r\n    \"password\": \"YourValidPassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/expense",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "expense"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InsertExpense - Mandatory Expense Category validation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20iLCJleHAiOjE3Nzg5OTcwMzcsImlhdCI6MTc3ODk5MzQzNywiZW1haWwiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20ifQ.pBmFO3Tt6xBhWQNZfhF-lsBaWgK6Ih69qVIQjtVAJAE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"expenseName\": \"Bus\",\r\n    \"expenseAmount\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/expense",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "expense"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InsertExpense - Mandatory Expense Amount validation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20iLCJleHAiOjE3Nzg5OTcwMzcsImlhdCI6MTc3ODk5MzQzNywiZW1haWwiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20ifQ.pBmFO3Tt6xBhWQNZfhF-lsBaWgK6Ih69qVIQjtVAJAE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"expenseName\": \"Bus\",\r\n    \"expenseCategory\": \"Travel\",\r\n    \"expenseAmount\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/expense",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "expense"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InsertExpense - Success",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20iLCJleHAiOjE3Nzg5OTcwMzcsImlhdCI6MTc3ODk5MzQzNywiZW1haWwiOiJhY2VhdXRvbWF0aW9uLmF1c3RyYWxpYUBnbWFpbC5jb20ifQ.pBmFO3Tt6xBhWQNZfhF-lsBaWgK6Ih69qVIQjtVAJAE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"expenseName\": \"Bus\",\r\n    \"expenseCategory\": \"Travel\",\r\n    \"expenseAmount\": 20\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/expense",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "expense"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot-Password",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"yourRegisteredEmailId\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/forgot-password",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify-Reset-OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"yourRegisteredEmailId\",\r\n    \"otp\":\"otpReceivedInEmail\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/verify-reset-otp",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-reset-otp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset-Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"yourRegisteredEmailId\",\r\n    \"resetToken\":\"AfzIIqGmFhEQqm0aGyNo-rYSsKCzBvWmr-CxXzrwH14\",\r\n    \"newPassword\":\"yourNewPassword\",\r\n    \"confirmPassword\":\"yourNewPassword\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://c0bd29gtl5.execute-api.us-east-1.amazonaws.com/api/auth/reset-password",
+              "protocol": "https",
+              "host": [
+                "c0bd29gtl5",
+                "execute-api",
+                "us-east-1",
+                "amazonaws",
+                "com"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
