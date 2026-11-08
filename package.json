@@ -1,0 +1,22 @@
+{
+  "name": "playwright-api-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:api": "npx playwright test",
+    "test:auth": "npx playwright test tests/auth",
+    "test:expense": "npx playwright test tests/expense",
+    "test:validation": "npx playwright test tests/expense/expense-validation.spec.js",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9"
+  }
+}
